@@ -108,7 +108,7 @@ model = build_gcn_model(input_steps, output_steps, num_nodes)
 model.summary()
 
 early_stopping = tf.keras.callbacks.EarlyStopping(monitor='val_mae', patience=7, mode='min')
-mc = tf.keras.callbacks.ModelCheckpoint('fast_api/gcn.weights.h5', monitor='val_mae', verbose=5, save_best_only=True, 
+mc = tf.keras.callbacks.ModelCheckpoint('gcn.weights.h5', monitor='val_mae', verbose=5, save_best_only=True, 
           mode='min', save_weights_only=True)
 
 history = model.fit(x_train_scaled, y_train_scaled, validation_split=0.1, epochs=100, batch_size=32, callbacks=[mc, early_stopping])
